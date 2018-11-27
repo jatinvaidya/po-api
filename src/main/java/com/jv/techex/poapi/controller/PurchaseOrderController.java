@@ -1,6 +1,5 @@
 package com.jv.techex.poapi.controller;
 
-import com.jv.techex.poapi.exception.DataNotFoundException;
 import com.jv.techex.poapi.model.PurchaseOrder;
 import com.jv.techex.poapi.repository.PurchaseOrderRepository;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class PurchaseOrderController {
 
     private PurchaseOrderRepository purchaseOrderRepository;
@@ -29,7 +29,7 @@ public class PurchaseOrderController {
 
         PurchaseOrder purchaseOrder = purchaseOrderRepository
                                                 .findById(id)
-                                                .orElseThrow(() -> new DataNotFoundException());
+                                                .orElseThrow(() -> new RuntimeException("order not found"));
         return ResponseEntity.ok(purchaseOrder);
     }
 

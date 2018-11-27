@@ -28,10 +28,10 @@ public class PoApiApplication {
     }
 
     private void loadData(PurchaseOrderRepository purchaseOrderRepository) {
-	    PurchaseOrder purchaseOrder = new PurchaseOrder(Long.valueOf(100000), 2, LocalDateTime.of(LocalDate.now(), LocalTime.now()), "only 4 left in stock");
+	    PurchaseOrder purchaseOrder = new PurchaseOrder(Long.valueOf(100000), 2, "only 4 left in stock");
 	    purchaseOrderRepository.save(purchaseOrder);
 	    logger.info("added purchase order: {}", purchaseOrder);
-	    purchaseOrder = new PurchaseOrder(Long.valueOf(100001), 4, LocalDateTime.of(LocalDate.now(), LocalTime.now()), "please follow-up daily");
+	    purchaseOrder = new PurchaseOrder(Long.valueOf(100001), 4, "please follow-up daily");
         purchaseOrderRepository.save(purchaseOrder);
         logger.info("added purchase order: {}", purchaseOrder);
     }

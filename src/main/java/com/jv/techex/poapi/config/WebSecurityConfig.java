@@ -9,12 +9,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .anyRequest().authenticated()
-                .and().formLogin()
-                .and().httpBasic()
-                .and().csrf().ignoringAntMatchers("/h2-console/**")
-                .and().headers().frameOptions().sameOrigin()
-                .and().csrf().disable();
+
+        // temporary settings before enabling oauth protection
+        http
+                .authorizeRequests().anyRequest().anonymous()
+                .and()
+                    .cors()
+                .and()
+                    .csrf().disable();
     }
 }
+

@@ -9,3 +9,8 @@ spring.datasource.url: jdbc:h2:mem:po
 spring.datasource.username: sa
 spring.datasource.password:
 
+# log levels
+logging:
+  level:
+    org.springframework.security: INFO
+    org.springframework.web: INFO

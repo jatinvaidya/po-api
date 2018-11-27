@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
 
 @Entity
 public class PurchaseOrder {
@@ -14,22 +13,19 @@ public class PurchaseOrder {
     private Long id;
     private Long itemId;
     private Integer quantity;
-    private LocalDateTime purchaseDate;
     private String comment;
 
     protected PurchaseOrder() { }
 
-    public PurchaseOrder(Long itemId, Integer quantity, LocalDateTime purchaseDate, String comment) {
+    public PurchaseOrder(Long itemId, Integer quantity, String comment) {
         this.itemId = itemId;
         this.quantity = quantity;
-        this.purchaseDate = purchaseDate;
         this.comment = comment;
     }
 
     public PurchaseOrder(PurchaseOrder purchaseOrder) {
         this.itemId = purchaseOrder.itemId;
         this.quantity = purchaseOrder.quantity;
-        this.purchaseDate = purchaseOrder.purchaseDate;
         this.comment = purchaseOrder.comment;
     }
 
@@ -57,14 +53,6 @@ public class PurchaseOrder {
         this.quantity = quantity;
     }
 
-    public LocalDateTime getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public void setPurchaseDate(LocalDateTime purchaseDate) {
-        this.purchaseDate = purchaseDate;
-    }
-
     public String getComment() {
         return comment;
     }
@@ -79,7 +67,6 @@ public class PurchaseOrder {
                 "id=" + id +
                 ", itemId=" + itemId +
                 ", quantity=" + quantity +
-                ", purchaseDate=" + purchaseDate +
                 ", comment='" + comment + '\'' +
                 '}';
     }
