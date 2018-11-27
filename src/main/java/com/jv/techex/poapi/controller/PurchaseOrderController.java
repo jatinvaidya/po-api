@@ -3,6 +3,7 @@ package com.jv.techex.poapi.controller;
 import com.jv.techex.poapi.model.PurchaseOrder;
 import com.jv.techex.poapi.repository.PurchaseOrderRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -18,12 +19,14 @@ public class PurchaseOrderController {
         this.purchaseOrderRepository = purchaseOrderRepository;
     }
 
+    @PreAuthorize("#oauth2.hasScope('po:write')")
     @PostMapping("/po")
     public ResponseEntity<PurchaseOrder> create(final @RequestBody PurchaseOrder purchaseOrder) {
         PurchaseOrder createdPurchaseOrder = purchaseOrderRepository.save(purchaseOrder);
         return ResponseEntity.ok(createdPurchaseOrder);
     }
 
+    @PreAuthorize("#oauth2.hasScope('po:read')")
     @GetMapping("/po/{id}")
     public ResponseEntity<PurchaseOrder> readPurchaseOrder(final @PathVariable Long id) {
 
@@ -33,6 +36,7 @@ public class PurchaseOrderController {
         return ResponseEntity.ok(purchaseOrder);
     }
 
+    @PreAuthorize("#oauth2.hasScope('po:read')")
     @GetMapping("/pos")
     public ResponseEntity<List<PurchaseOrder>> listPurchaseOrders() {
 
@@ -44,6 +48,7 @@ public class PurchaseOrderController {
         return ResponseEntity.ok(purchaseOrders);
     }
 
+    @PreAuthorize("#oauth2.hasScope('po:write')")
     @PutMapping("/po/{id}")
     public ResponseEntity<PurchaseOrder> updatePurchaseOrder(final @PathVariable Long id, final @RequestBody PurchaseOrder purchaseOrder) {
 
@@ -52,6 +57,7 @@ public class PurchaseOrderController {
         return ResponseEntity.ok(updatedPurchaseOrder);
     }
 
+    @PreAuthorize("#oauth2.hasScope('po:delete')")
     @DeleteMapping("/po/{id}")
     public ResponseEntity<Void> deletePurchaseOrder(@PathVariable Long id) {
 
