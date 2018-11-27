@@ -1,16 +1,32 @@
-# base path
-server.servlet.context-path: /api/v1
+# api base path
+server:
+  servlet:
+    context-path: /api/v1
 
-# enable H2 console
-spring.h2.console.enabled: true
-spring.datasource.platform: h2
-spring.datasource.driverClassName: org.h2.Driver
-spring.datasource.url: jdbc:h2:mem:po
-spring.datasource.username: sa
-spring.datasource.password:
+# enable H2 (in-memory db) console
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  h2:
+    console:
+      enabled: true
+  datasource:
+    platform: h2
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:po
+    username: sa
+    password:
+
+# oauth2 resource server config
+security:
+  oauth2:
+    resource:
+      jwk:
+        key-set-uri: https://jv-techex.auth0.com/.well-known/jwks.json
 
 # log levels
 logging:
   level:
-    org.springframework.security: INFO
+    org.springframework.security: DEBUG
     org.springframework.web: INFO
+

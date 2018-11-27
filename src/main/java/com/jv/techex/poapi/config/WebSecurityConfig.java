@@ -10,13 +10,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        // temporary settings before enabling oauth protection
-        http
-                .authorizeRequests().anyRequest().anonymous()
+        http.cors()
                 .and()
-                    .cors()
-                .and()
-                    .csrf().disable();
+                .csrf().disable(); // revisit
     }
 }
 

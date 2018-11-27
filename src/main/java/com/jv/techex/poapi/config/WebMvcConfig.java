@@ -10,7 +10,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     public void addCorsMappings(CorsRegistry corsRegistry) {
         corsRegistry
                 .addMapping("/**")
-                .allowedOrigins("http://po-ui.jv-techex.com")
+                .allowedOrigins("http://po-ui.jv-techex.com") // SPA
                 .allowedMethods(HttpMethod.GET.name(),
                         HttpMethod.POST.name(),
                         HttpMethod.PUT.name(),
