@@ -1,10 +1,12 @@
 package com.jv.techex.poapi.config;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-public class WebMvcConfig extends WebMvcConfigurerAdapter {
+@Configuration
+public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry corsRegistry) {
@@ -19,3 +21,4 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
                 .allowedHeaders("*");
     }
 }
+
