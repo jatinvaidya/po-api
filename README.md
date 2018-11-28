@@ -1,6 +1,6 @@
 # Purchase Order Management API
 
-This is a simple RESTful CRUD API based on Spring Boot to demonstrate **OAuth 2.0 Resource Server** (secure API)
+This is a simple RESTful CRUD API based on Spring Boot to demonstrate **OAuth 2.0 Resource Server** (secure API).  
 It uses an in-memory database (H2) for ephemeral storage. Data will be wiped out upon service shutdown.
 
 ## Configuration Details
@@ -21,13 +21,14 @@ Currently the `jwks` URI for the following Auth0 tenant is configured: `jv-teche
 | PUT /po/:ID   | po:write       |
 | DELETE /po/:id| po:delete      |
 
-## Running the application locally
+## Running Locally
 
 #### Requirements
 
 For building and running the application you need:
 
 - [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- An Auth0 tenant and configuration of an API application (instructions not covered here).
 
 ```shell
 cd po-api
