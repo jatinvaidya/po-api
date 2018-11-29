@@ -11,13 +11,13 @@ public class PurchaseOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long itemId;
+    private String itemId;
     private Integer quantity;
     private String comment;
 
     protected PurchaseOrder() { }
 
-    public PurchaseOrder(Long itemId, Integer quantity, String comment) {
+    public PurchaseOrder(String itemId, Integer quantity, String comment) {
         this.itemId = itemId;
         this.quantity = quantity;
         this.comment = comment;
@@ -37,11 +37,11 @@ public class PurchaseOrder {
         this.id = id;
     }
 
-    public Long getItemId() {
+    public String getItemId() {
         return itemId;
     }
 
-    public void setItemId(Long itemId) {
+    public void setItemId(String itemId) {
         this.itemId = itemId;
     }
 

@@ -8,16 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.access.expression.method.MethodSecurityExpressionHandler;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
-import org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 @EnableResourceServer
 @SpringBootApplication
@@ -35,10 +26,10 @@ public class PoApiApplication {
     }
 
     private void loadData(PurchaseOrderRepository purchaseOrderRepository) {
-	    PurchaseOrder purchaseOrder = new PurchaseOrder(Long.valueOf(100000), 2, "only 4 left in stock");
+	    PurchaseOrder purchaseOrder = new PurchaseOrder("Canister Pump Filter", 2, "only 4 left in stock");
 	    purchaseOrderRepository.save(purchaseOrder);
 	    logger.info("added purchase order: {}", purchaseOrder);
-	    purchaseOrder = new PurchaseOrder(Long.valueOf(100001), 4, "please follow-up daily");
+	    purchaseOrder = new PurchaseOrder("Trickle Filter", 4, "please follow-up daily");
         purchaseOrderRepository.save(purchaseOrder);
         logger.info("added purchase order: {}", purchaseOrder);
     }
