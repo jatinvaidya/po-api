@@ -21,6 +21,11 @@ Currently the `jwks` URI for the following Auth0 tenant is configured: `jv-teche
 | PUT /po/:id   | po:write       |
 | DELETE /po/:id| po:delete      |
 
+## Cross Origin Requests
+
+This API is enabled for Cross Origin Requests (and pre-flight requests) from the following Origin only:  
+`http://po-ui.jv-techex.com`
+
 ## Running Locally
 
 #### Requirements
