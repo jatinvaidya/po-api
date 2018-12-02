@@ -5,6 +5,10 @@ import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/*
+    Enable cross-origin access to this API
+    and set allowed origin, methods and headers
+ */
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
@@ -13,7 +17,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         corsRegistry
                 .addMapping("/**")
                 .allowedOrigins("http://po-ui.jv-techex.com") // SPA
-                .allowedMethods(HttpMethod.GET.name(),
+                .allowedMethods(
+                        HttpMethod.GET.name(),
                         HttpMethod.POST.name(),
                         HttpMethod.PUT.name(),
                         HttpMethod.DELETE.name(),

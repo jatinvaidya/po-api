@@ -17,7 +17,7 @@ spring:
     username: sa
     password:
 
-# oauth2 resource server config
+# oauth2 resource server config - jwt verification
 security:
   oauth2:
     resource:
@@ -27,6 +27,6 @@ security:
 # log levels
 logging:
   level:
-    org.springframework.security: DEBUG
+    org.springframework.security: INFO
     org.springframework.web: INFO
 

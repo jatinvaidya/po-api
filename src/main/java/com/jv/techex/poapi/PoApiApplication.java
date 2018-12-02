@@ -10,6 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
+/*
+	This entry point into the spring boot application
+ */
 @EnableResourceServer
 @SpringBootApplication
 public class PoApiApplication {
@@ -25,6 +28,7 @@ public class PoApiApplication {
         return (args) -> loadData(purchaseOrderRepository);
     }
 
+	// load sample data into the in-memory db
     private void loadData(PurchaseOrderRepository purchaseOrderRepository) {
 	    PurchaseOrder purchaseOrder = new PurchaseOrder("Canister Pump Filter", 2, "only 4 left in stock");
 	    purchaseOrderRepository.save(purchaseOrder);

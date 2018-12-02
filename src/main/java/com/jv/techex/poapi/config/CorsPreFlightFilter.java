@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/*
+    This is a servlet filter for responding to CORS pre-flight requests.
+ */
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsPreFlightFilter implements Filter {

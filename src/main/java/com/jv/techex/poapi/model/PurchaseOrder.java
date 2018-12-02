@@ -5,6 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/*
+    This is the data model for a purchase order
+    It is also marked for an entity for JPA/ORM
+ */
 @Entity
 public class PurchaseOrder {
 

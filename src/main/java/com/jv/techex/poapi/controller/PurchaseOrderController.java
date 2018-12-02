@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    This is the entry point for business processing of requests
+    This is the MVC Controller
+ */
 @RestController
 @CrossOrigin
 public class PurchaseOrderController {
