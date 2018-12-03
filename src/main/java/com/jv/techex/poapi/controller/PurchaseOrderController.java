@@ -32,7 +32,7 @@ public class PurchaseOrderController {
 
     @PreAuthorize("#oauth2.hasScope('po:read')")
     @GetMapping("/po/{id}")
-    public ResponseEntity<PurchaseOrder> readPurchaseOrder(final @PathVariable Long id) {
+    public ResponseEntity<PurchaseOrder> read(final @PathVariable Long id) {
 
         PurchaseOrder purchaseOrder = purchaseOrderRepository
                                                 .findById(id)
@@ -42,7 +42,7 @@ public class PurchaseOrderController {
 
     @PreAuthorize("#oauth2.hasScope('po:read')")
     @GetMapping("/pos")
-    public ResponseEntity<List<PurchaseOrder>> listPurchaseOrders() {
+    public ResponseEntity<List<PurchaseOrder>> list() {
 
         List<PurchaseOrder> purchaseOrders = new ArrayList<>();
         purchaseOrderRepository
@@ -54,7 +54,7 @@ public class PurchaseOrderController {
 
     @PreAuthorize("#oauth2.hasScope('po:write')")
     @PutMapping("/po/{id}")
-    public ResponseEntity<PurchaseOrder> updatePurchaseOrder(final @PathVariable Long id, final @RequestBody PurchaseOrder purchaseOrder) {
+    public ResponseEntity<PurchaseOrder> update(final @PathVariable Long id, final @RequestBody PurchaseOrder purchaseOrder) {
 
         purchaseOrder.setId(id);
         PurchaseOrder updatedPurchaseOrder = purchaseOrderRepository.save(purchaseOrder);
@@ -63,7 +63,7 @@ public class PurchaseOrderController {
 
     @PreAuthorize("#oauth2.hasScope('po:delete')")
     @DeleteMapping("/po/{id}")
-    public ResponseEntity<Void> deletePurchaseOrder(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
 
         purchaseOrderRepository.deleteById(id);
         return ResponseEntity.noContent().build();
