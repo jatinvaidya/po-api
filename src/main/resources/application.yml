@@ -18,6 +18,7 @@ spring:
     password:
 
 # oauth2 resource server config - jwt verification
+# verify signature, issuer and audience
 security:
   oauth2:
     resource:
